@@ -24,3 +24,14 @@ describe('Séries Favoritas', () => {
     cy.checkAccessibility();
   });
 });
+
+describe('Séries Favoritas — layout', () => {
+  it('em tela larga os cards ficam lado a lado (grid)', () => {
+    cy.visit('apps/favorite-series/');
+    cy.get('article').eq(0).then(($first) => {
+      cy.get('article').eq(1).should(($second) => {
+        expect($second.offset().top).to.equal($first.offset().top);
+      });
+    });
+  });
+});

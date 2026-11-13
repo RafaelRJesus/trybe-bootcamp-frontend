@@ -1,7 +1,7 @@
 # Portfólio de QA · Apps React
 
 [![CI](https://github.com/RafaelRJesus/trybe-bootcamp-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/RafaelRJesus/trybe-bootcamp-frontend/actions/workflows/ci.yml)
-![Testes](https://img.shields.io/badge/testes-132-success)
+![Testes](https://img.shields.io/badge/testes-133-success)
 ![Cobertura](https://img.shields.io/badge/cobertura-99%25-brightgreen)
 ![Defeitos corrigidos](https://img.shields.io/badge/defeitos%20corrigidos-18-blue)
 
@@ -16,7 +16,7 @@ Projeto de **Quality Assurance** sobre 5 aplicações React estudadas no bootcam
 | | |
 |---|---|
 | 🧪 **105 testes unitários e de integração** | Vitest + React Testing Library, com 99% de cobertura |
-| 🌐 **27 testes E2E** | Cypress, rodando no app publicado e com as APIs simuladas |
+| 🌐 **28 testes E2E** | Cypress, rodando no app publicado e com as APIs simuladas |
 | ♿ **Testes de acessibilidade** | axe-core (WCAG 2.1 AA) em todas as telas |
 | 🐞 **[Relatório de defeitos](BUGS.md)** | 18 bugs com passos para reproduzir, causa, severidade e correção |
 | ⚙️ **CI/CD** | GitHub Actions: testes → E2E → publicação no GitHub Pages |
@@ -35,7 +35,7 @@ Projeto de **Quality Assurance** sobre 5 aplicações React estudadas no bootcam
 
 ```
             ┌──────────────┐
-            │   E2E (27)   │  Cypress: fluxos reais no navegador + axe
+            │   E2E (28)   │  Cypress: fluxos reais no navegador + axe
             ├──────────────┤
             │ Integração   │  React Testing Library: componentes como o usuário usa
             ├──────────────┤
