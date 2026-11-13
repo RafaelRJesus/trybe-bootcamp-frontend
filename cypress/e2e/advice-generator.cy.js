@@ -16,10 +16,10 @@ describe('Advice Generator', () => {
   });
 
   it('BUG-10: o botão fica desabilitado enquanto carrega', () => {
-    cy.intercept('GET', API, { delay: 800, body: { slip: { id: 1, advice: 'Wait.' } } }).as('slow');
+    cy.intercept('GET', API, { delay: 800, body: { slip: { id: 1, advice: 'Wait.' } } }).as('slowAdvice');
     cy.visit('apps/advice-generator/');
     cy.get('button[aria-label="Gerar novo conselho"]').should('be.disabled');
-    cy.wait('@slow');
+    cy.wait('@slowAdvice');
     cy.get('button[aria-label="Gerar novo conselho"]').should('be.enabled');
   });
 
