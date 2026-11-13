@@ -1,0 +1,31 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --light-grey: #E5E5E5;
+  /* BUG-18: #7B7B7B e #789A13 não tinham contraste suficiente */
+  --dark-grey: #595959;
+  --green: #4d6410;
+  --purple: #1E0D2B;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* BUG-16 (corrigido): os cards usavam var(--primary) e var(--accent),
+   que nunca foram definidas. As cores caíam no padrão do navegador. */
+:root {
+  --primary: var(--purple);
+  --accent: var(--green);
+}
+
+body {
+  background-color: var(--light-grey);
+}

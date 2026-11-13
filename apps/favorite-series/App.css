@@ -1,0 +1,22 @@
+.page {
+  padding: 32px 16px;
+}
+
+.page > h1 {
+  text-align: center;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.favorites-summary {
+  text-align: center;
+  color: var(--dark-grey);
+  margin-bottom: 16px;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}

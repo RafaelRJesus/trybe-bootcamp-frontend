@@ -1,0 +1,38 @@
+{
+  "name": "trybe-bootcamp-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Portfólio de QA: suíte de testes automatizados (Vitest, React Testing Library e Cypress) sobre apps React do bootcamp da Trybe",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "e2e": "start-server-and-test preview http://localhost:4173/trybe-bootcamp-frontend/ cy:run"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-credit-cards-2": "^1.2.0",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.7.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.10",
+    "@vitejs/plugin-react": "^6.3.0",
+    "@vitest/coverage-v8": "^5.1.0",
+    "axe-core": "^4.14.0",
+    "cypress": "^16.3.0",
+    "jsdom": "^31.0.1",
+    "start-server-and-test": "^3.0.13",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

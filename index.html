@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio de QA · Rafael Rocha de Jesus</title>
+    <meta name="description" content="Suíte de testes automatizados (Vitest, React Testing Library e Cypress) sobre 5 apps React do bootcamp da Trybe." />
+    <style>
+      :root { color-scheme: light; --ink: #14213d; --muted: #5c677d; --brand: #0b7a5b; --card: #ffffff; --bg: #f4f6f8; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
+      header { background: var(--ink); color: #fff; padding: 48px 20px; text-align: center; }
+      header h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+      header p { color: #cfd6e4; max-width: 680px; margin: 12px auto 0; }
+      .badges { margin-top: 20px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+      .badges span { background: rgba(255,255,255,.12); border-radius: 999px; padding: 4px 12px; font-size: .85rem; }
+      main { max-width: 1080px; margin: 0 auto; padding: 32px 20px 48px; }
+      h2 { margin-bottom: 16px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 1px 4px rgba(20,33,61,.08); display: flex; flex-direction: column; gap: 8px; }
+      .card h3 { font-size: 1.1rem; }
+      .card p { color: var(--muted); font-size: .95rem; flex: 1; }
+      .card .tags { font-size: .8rem; color: var(--brand); font-weight: 600; }
+      .card a { align-self: flex-start; background: var(--brand); color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-weight: 600; }
+      .card a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+      .links { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+      .links a { color: var(--brand); font-weight: 600; }
+      footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 20px 32px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Portfólio de QA · Apps React</h1>
+      <p>Suíte de testes automatizados escrita sobre 5 aplicações React estudadas no bootcamp de Desenvolvimento Web da Trybe. Os testes encontraram 18 defeitos, que foram corrigidos e cobertos por testes de regressão.</p>
+      <div class="badges"><span>Vitest</span><span>React Testing Library</span><span>Cypress</span><span>GitHub Actions</span><span>Acessibilidade</span></div>
+    </header>
+    <main>
+      <h2>Aplicações testadas</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Cadastro de Cartão</h3>
+          <p>Formulário com pré-visualização do cartão. Validação de número (algoritmo de Luhn), titular, validade e CVC.</p>
+          <span class="tags">Valor limite · Partição de equivalência</span>
+          <a href="./apps/credit-card/">Abrir app</a>
+        </article>
+        <article class="card">
+          <h3>Minha Lista de Filmes</h3>
+          <p>CRUD de filmes: adicionar, editar, marcar como assistido e remover.</p>
+          <span class="tags">Fluxo E2E · Estado de componentes</span>
+          <a href="./apps/to-watch/">Abrir app</a>
+        </article>
+        <article class="card">
+          <h3>Advice Generator</h3>
+          <p>Desafio do Frontend Mentor que busca conselhos aleatórios numa API pública.</p>
+          <span class="tags">Mock de API · Tratamento de erro</span>
+          <a href="./apps/advice-generator/">Abrir app</a>
+        </article>
+        <article class="card">
+          <h3>Slideshow de Imagens</h3>
+          <p>Carrossel automático com navegação manual e troca de categoria.</p>
+          <span class="tags">Timers · Ciclo de vida</span>
+          <a href="./apps/slideshow/">Abrir app</a>
+        </article>
+        <article class="card">
+          <h3>Séries Favoritas</h3>
+          <p>Lista de séries com marcação de favoritas e filtro.</p>
+          <span class="tags">Acessibilidade · Estado</span>
+          <a href="./apps/favorite-series/">Abrir app</a>
+        </article>
+      </div>
+      <div class="links">
+        <a href="https://github.com/RafaelRJesus/trybe-bootcamp-frontend">Código e testes no GitHub</a>
+        <a href="https://github.com/RafaelRJesus/trybe-bootcamp-frontend/blob/main/BUGS.md">Relatório de defeitos</a>
+        <a href="./coverage/">Relatório de cobertura</a>
+      </div>
+    </main>
+    <footer>Apps baseados no material das aulas da Trybe (Turma 31). Testes, correções e documentação por Rafael Rocha de Jesus.</footer>
+  </body>
+</html>

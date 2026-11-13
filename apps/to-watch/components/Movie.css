@@ -1,0 +1,45 @@
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.movie-info button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.25em;
+}
+
+.movie-title {
+  margin-right: 1em;
+  color: #333;
+  font-weight: bold;
+}
+
+.movie-status {
+  margin-right: 1em;
+  color: #c2185b;
+}
+
+.movie-status[aria-pressed='true'] {
+  color: #2e7d32;
+}
+
+.delete-icon {
+  color: #c2185b;
+  font-size: 1.2rem;
+}
+
+.movie-edit {
+  display: flex;
+  gap: 0.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.movie-edit input {
+  margin: 0;
+}
