@@ -3,12 +3,17 @@
 // Agora usamos a API pública do Lorem Picsum, que não exige chave.
 const API_URL = 'https://picsum.photos/v2/list';
 const IMAGES_PER_CATEGORY = 5;
+export const REQUEST_TIMEOUT_MS = 8000;
 
 export const CATEGORIES = ['natureza', 'cidade', 'praia', 'montanha'];
 
 export const fetchImages = async (category) => {
   const page = CATEGORIES.indexOf(category) + 1 || 1;
-  const response = await fetch(`${API_URL}?page=${page}&limit=${IMAGES_PER_CATEGORY}`);
+  // Sem limite de tempo, uma API lenta deixava a tela em "Carregando..." indefinidamente.
+  const response = await fetch(
+    `${API_URL}?page=${page}&limit=${IMAGES_PER_CATEGORY}`,
+    { signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) },
+  );
 
   if (!response.ok) {
     throw new Error('Erro ao buscar as imagens');

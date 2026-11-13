@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import App from './App';
-import { fetchData } from './services/advice-api';
+import { fetchData, REQUEST_TIMEOUT_MS } from './services/advice-api';
 
 const adviceResponse = (id, advice) => ({
   ok: true,
@@ -48,7 +48,7 @@ describe('Advice Generator', () => {
     await screen.findByText('"Ok."');
     expect(fetchSpy).toHaveBeenCalledWith(
       'https://api.adviceslip.com/advice',
-      { cache: 'no-store' },
+      expect.objectContaining({ cache: 'no-store', signal: expect.any(AbortSignal) }),
     );
   });
 
@@ -122,6 +122,14 @@ describe('Advice Generator', () => {
 });
 
 describe('fetchData', () => {
+  it('cancela a requisição depois de 8 segundos sem resposta', async () => {
+    const timeoutSpy = vi.spyOn(AbortSignal, 'timeout');
+    mockFetch(adviceResponse(1, 'Ok.'));
+    await fetchData();
+    expect(timeoutSpy).toHaveBeenCalledWith(REQUEST_TIMEOUT_MS);
+    expect(REQUEST_TIMEOUT_MS).toBe(8000);
+  });
+
   it('lança erro quando a resposta não é ok', async () => {
     mockFetch({ ok: false });
     await expect(fetchData()).rejects.toThrow('Erro ao buscar dados da API');

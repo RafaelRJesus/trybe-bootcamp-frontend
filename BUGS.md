@@ -113,7 +113,7 @@ Defeitos encontrados na análise e nos testes das 5 aplicações. Todos foram co
 
 ### BUG-17: Slideshow preso em "Carregando..."
 - **Problema:** com a API fora do ar, o erro só ia para o console.
-- **Correção:** mensagem de erro e botão "Tentar novamente".
+- **Correção:** mensagem de erro e botão "Tentar novamente". As requisições dos dois apps com API também ganharam limite de 8 segundos (`AbortSignal.timeout`), para que uma API lenta não deixe a tela carregando indefinidamente.
 
 ### BUG-18: Contraste insuficiente
 Encontrado na verificação automática com o axe-core.

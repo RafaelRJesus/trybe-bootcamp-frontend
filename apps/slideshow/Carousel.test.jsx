@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import App from './App';
 import Carousel, { SLIDE_INTERVAL_MS } from './components/Carousel';
-import { fetchImages } from './services/api';
+import { fetchImages, REQUEST_TIMEOUT_MS } from './services/api';
 
 const photos = (count, offset = 0) => Array.from({ length: count }, (_, i) => ({
   id: String(i + offset),
@@ -96,14 +96,18 @@ describe('Slideshow', () => {
     render(<App />);
     await screen.findByTestId('carousel-image');
     await user.selectOptions(screen.getByLabelText(/categoria/i), 'montanha');
-    expect(fetchSpy).toHaveBeenLastCalledWith('https://picsum.photos/v2/list?page=4&limit=5');
+    expect(fetchSpy).toHaveBeenLastCalledWith(
+      'https://picsum.photos/v2/list?page=4&limit=5',
+      { signal: expect.any(AbortSignal) },
+    );
   });
 
   it('BUG-03: a requisição não envia nenhuma chave de API', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(okResponse(photos(5)));
     render(<App />);
     await screen.findByTestId('carousel-image');
-    expect(fetchSpy.mock.calls[0]).toHaveLength(1);
+    const [, options] = fetchSpy.mock.calls[0];
+    expect(Object.keys(options)).toEqual(['signal']);
   });
 
   it('oculta e mostra o carrossel', async () => {
@@ -164,6 +168,17 @@ describe('fetchImages', () => {
   it('usa a página 1 para uma categoria desconhecida', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(okResponse([]));
     await fetchImages('desconhecida');
-    expect(fetchSpy).toHaveBeenCalledWith('https://picsum.photos/v2/list?page=1&limit=5');
+    expect(fetchSpy).toHaveBeenCalledWith(
+      'https://picsum.photos/v2/list?page=1&limit=5',
+      { signal: expect.any(AbortSignal) },
+    );
+  });
+
+  it('cancela a requisição depois de 8 segundos sem resposta', async () => {
+    const timeoutSpy = vi.spyOn(AbortSignal, 'timeout');
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(okResponse([]));
+    await fetchImages('natureza');
+    expect(timeoutSpy).toHaveBeenCalledWith(REQUEST_TIMEOUT_MS);
+    expect(REQUEST_TIMEOUT_MS).toBe(8000);
   });
 });
