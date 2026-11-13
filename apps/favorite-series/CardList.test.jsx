@@ -23,6 +23,15 @@ describe('Séries Favoritas', () => {
       .toEqual(['Jesse', 'Heisenberg']);
   });
 
+  it('a capa mostra as iniciais das palavras com maiúscula', () => {
+    render(<App />);
+    const initials = (name) => within(screen.getByRole('article', { name }))
+      .getByText(/^[A-Z]{1,2}$/).textContent;
+    expect(initials('Band of Brothers')).toBe('BB');
+    expect(initials('Cobra Kai Season V')).toBe('CK');
+    expect(initials('Supernatural')).toBe('S');
+  });
+
   it('BUG-15: cada botão de favoritar tem nome acessível e estado', () => {
     render(<App />);
     const button = screen.getByRole('button', { name: 'Favoritar Suits' });

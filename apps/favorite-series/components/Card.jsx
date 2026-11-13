@@ -9,7 +9,12 @@ class Card extends React.Component {
   render() {
     const { name, categoria, personagens, rating,
       release, favorite, handleFavorite } = this.props;
-    const initials = name.split(' ').slice(0, 2).map((word) => word[0]).join('');
+    // Iniciais das palavras com maiúscula: "Band of Brothers" vira "BB", não "Bo".
+    const initials = name.split(' ')
+      .filter((word) => /^\p{Lu}/u.test(word))
+      .slice(0, 2)
+      .map((word) => word[0])
+      .join('');
 
     return (
       <article className="Card" aria-label={ name }>

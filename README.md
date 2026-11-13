@@ -1,7 +1,7 @@
 # Portfólio de QA · Apps React
 
 [![CI](https://github.com/RafaelRJesus/trybe-bootcamp-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/RafaelRJesus/trybe-bootcamp-frontend/actions/workflows/ci.yml)
-![Testes](https://img.shields.io/badge/testes-135-success)
+![Testes](https://img.shields.io/badge/testes-136-success)
 ![Cobertura](https://img.shields.io/badge/cobertura-99%25-brightgreen)
 ![Defeitos corrigidos](https://img.shields.io/badge/defeitos%20corrigidos-18-blue)
 
@@ -15,7 +15,7 @@ Projeto de **Quality Assurance** sobre 5 aplicações React estudadas no bootcam
 
 | | |
 |---|---|
-| 🧪 **107 testes unitários e de integração** | Vitest + React Testing Library, com 99% de cobertura |
+| 🧪 **108 testes unitários e de integração** | Vitest + React Testing Library, com 99% de cobertura |
 | 🌐 **28 testes E2E** | Cypress, rodando no app publicado e com as APIs simuladas |
 | ♿ **Testes de acessibilidade** | axe-core (WCAG 2.1 AA) em todas as telas |
 | 🐞 **[Relatório de defeitos](BUGS.md)** | 18 bugs com passos para reproduzir, causa, severidade e correção |
